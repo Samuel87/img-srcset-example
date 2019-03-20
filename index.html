@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+        /* 400px img loaded */
+        img {
+            width: 400px;
+            height: 400px;
+        }
+        /* 800px img loaded */
+        @media (min-width: 576px) {
+            img {
+                width: 550px;
+                height: 550px;
+            }
+        }
+        /* 1200px img loaded */
+        @media (min-width: 768px) {
+            img {
+                width: 700px;
+                height: 700px;
+            }
+        }
+        /* 1600px img loaded */
+        @media (min-width: 1024px) {
+            img {
+                width: 1600px;
+                height: 1600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- srcset - |image filename| |the image's inherent width in pixels|w -->
+    <!-- sizes  - |media condition| |width of the slot| -->
+
+    <!-- With these attributes in place, the browser will:
+         1. Look at its device width.
+         2. Work out which media condition in the sizes list is the first one to be true.
+         3. Look at the slot size given to that media query.
+         4. Load the image referenced in the srcset list that most closely matches the chosen slot size. -->
+
+    <img
+        srcset="images/image-1x.png 400w,
+                images/image-2x.png 800w,
+                images/image-3x.png 1200w,
+                images/image-4x.png 1600w"
+        sizes="(max-width: 575px) 400px,
+               (max-width: 767px) 800px,
+               (max-width: 1023px) 1200px,
+               1600px"
+        src="images/image-4x.png"
+    >
+
+</body>
+</html>
